@@ -13,16 +13,18 @@ public class SimpleCalc {
             System.out.print("Enter expression: ");
             userExpression = scan.nextLine();
 
+            // If user enters "stop", the program is immediately terminated.
             if (userExpression.equals("stop")) {
                 System.out.println("Goodbye.");
-                break;
+                System.exit(0);
             }
     
+            // Tries to evaluate the current expression entered by the user
             try {
                 String[] components = userExpression.split(" ");
 
-                // If the list of components if beyond 3, we do want not it executed.
-                // EX: if "4500 - 300 -" gets entered, the program can execute without an error. However, we do want not it executed
+                // If the list of components is beyond 3, we do want not it executed.
+                // EX: if "4500 - 300 -" gets entered, the program can execute without an error. However, we do want not this executed
                 if (components.length > 3) {
                     System.out.println("Incorrect input, try again.");
                     continue;
@@ -44,7 +46,7 @@ public class SimpleCalc {
 
     public static double doOperation(double leftVal, double rightVal, String op) {
 
-        // Calculates a basic expression for the appropriate operator
+        // Calculates a basic expression for the appropriate operator argument
         switch(op) {
             case "+":
                 return leftVal + rightVal;
